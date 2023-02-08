@@ -187,7 +187,34 @@ body{
    color:#fff;
 }
 
-
+.filter{
+   justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.filter button{
+   margin: 0px 10px;
+   padding: 5px 10px;
+   background-color: #0000ff1f;
+   font-size: 1.5rem;
+   min-width: 100px;
+}
+.filter button:hover{
+   box-shadow: 0px 0px 1px 1px blue;
+}
+.filter button:active{
+   background-color: rgb(136, 136, 255);
+}
+.cart{
+   background: #444;
+   color: #fff;
+   flex: 1 1 16rem;
+   padding: 1rem;
+   font-size: 1.8rem;
+   border: 0.1rem solid #444;
+  }
 @media (max-width:991px){
 
    html{

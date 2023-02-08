@@ -4,7 +4,7 @@ const data=[
         src:"images/Pav-bhaji-5.jpg",
         name:"Pav-bhaji",
         rating:4.5,
-        price:130,
+        price:170,
         category:"Veg",
         description:"Pav Bhaji is a fast food dish from Mumbai (Bombay), India, consisting of a vegetable curry (bhaji) cooked in tomato gravy and served with a soft bread roll (pav).",
     },
