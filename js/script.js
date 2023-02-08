@@ -127,7 +127,7 @@ console.log(allCartButton)
 allCartButton.forEach(btn=>{
   btn.addEventListener("click",(e)=>{
     localStorage.setItem("id",e.target.dataset.id)
-    window.location.href = "https://pranay-paradkar.github.io/QR-Menu-Scanner/cart.html"
+    window.location.href = "https://pranay-paradkar.github.io/QR-Menu-Scanner/Cart.html"
   })
 })
 
