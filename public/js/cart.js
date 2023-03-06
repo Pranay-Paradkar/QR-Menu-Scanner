@@ -1,6 +1,13 @@
+const backbutton = document.querySelector(".back");
+backbutton.addEventListener("click",()=>{
+    location.href = "/"
+})
 let carts = [];
 
+const payButton = document.querySelector(".pay")
+payButton.disabled = true
 //get cart from localstorage and store it in carts
+
 let localCartData = localStorage.getItem("cart")
 if(localCartData){
     localCartData = JSON.parse(localCartData)
@@ -39,6 +46,7 @@ if(id){
 }
 
 
+
 //initial render
 items.innerHTML = carts.map(e=>{
     const {  id, src, name, rating, price, description, count } = e;
@@ -73,7 +81,6 @@ AllRemoveBtn.forEach(btn=>{
         ParentElement.remove()
         carts = carts.filter(c=>c.id != id)
         localStorage.setItem("cart",JSON.stringify(carts))
-        
     })
 })
 
@@ -113,3 +120,11 @@ counterBtn.forEach(btn=>{
         }
     })
 })
+
+payButton.addEventListener("click",()=>{
+    window.location.assign("http://localhost:5000/index2.html")
+})
+
+if(carts.length){
+    payButton.disabled = false;
+}

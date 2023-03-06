@@ -6,6 +6,18 @@ let productContainer = document.querySelector('.products-container');
 
 const filteredButton = document.querySelectorAll(".filter button");
 
+const cartCount = document.querySelector(".cartCount");
+const cartIcon = document.querySelector(".cartIcon");
+cartIcon.addEventListener("click",()=>{
+  location.href ="/cart.html"
+})
+let localCartData = localStorage.getItem("cart")
+if(localCartData){
+    localCartData = JSON.parse(localCartData)
+    cartCount.textContent = localCartData.length
+}
+
+
 filteredButton.forEach((btn)=>{
   btn.addEventListener("click",(event)=>{
     const category = event.target.id;
@@ -98,7 +110,7 @@ productContainer.innerHTML=tempData.map((product)=>{
     <p> ${description}</p>
     <div class="price">₹${price}/-</div>
     <div class="buttons">
-       <a href="#" class="buy">buy now</a>
+      <button class = "buy" data-id = ${id}>Buy</button>
        <button class = "cart" data-id = ${id}>Add To Cart</button>
     </div>
  </div>`
@@ -127,9 +139,24 @@ console.log(allCartButton)
 allCartButton.forEach(btn=>{
   btn.addEventListener("click",(e)=>{
     localStorage.setItem("id",e.target.dataset.id)
-    window.location.href = "https://pranay-paradkar.github.io/QR-Menu-Scanner/Cart.html"
+    window.location.href = "/Cart.html"
   })
 })
+//https://pranay-paradkar.github.io/QR-Menu-Scanner
+
+const allBuyButton = document.querySelectorAll(".buy");
+allBuyButton.forEach(btn=>{
+  btn.addEventListener("click",(e)=>{
+    let carts = []
+    var filteredData = {...data.filter(d=>d.id == e.target.dataset.id)[0],count : 1}
+    carts.push(filteredData);
+    localStorage.removeItem("cart");
+    localStorage.setItem("cart",JSON.stringify(carts));
+    window.location.assign("http://localhost:5000/index2.html");
+  })
+})
+
+
 
 previewBox.forEach(close =>{
   close.querySelector('.fa-times').onclick = () =>{
